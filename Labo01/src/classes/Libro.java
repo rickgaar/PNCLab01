@@ -6,6 +6,7 @@ public class Libro {
     String autor;
     int anio;
     String genero;
+    boolean prestado;
 
     public Libro (String id, String nombre, String autor, int anio, String genero){
         this.id = id;
