@@ -544,7 +544,7 @@ public class Main {
             System.out.println("2. Listado de libros existentes");
             System.out.println("3. Listado de libros en estado de préstamo");
             System.out.println("4. Listado de libros disponibles");
-            System.out.println("5. Prestar un libro");
+            System.out.println("5. Prestar/devolver un libro");
             System.out.println("6. Ver detalles de un libro");
             System.out.println("7. Terminar sistema");
             System.out.print("Ingresar opcion: ");
