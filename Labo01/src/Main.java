@@ -469,7 +469,7 @@ public class Main {
             System.out.print("Ingrese la fecha final del préstamo: ");
             String fecha_fin = scanner.nextLine();
 
-            Prestamos nuevoPrestamo = new Prestamos(id_prestamo, nombre_persona, edad, dui, fecha_prestamo, "");
+            Prestamos nuevoPrestamo = new Prestamos(id_prestamo, nombre_persona, edad, dui, fecha_prestamo, fecha_fin);
             prestamo.add(nuevoPrestamo);
             //Cambiando el estado a prestado
             material.cambiarEstado();
