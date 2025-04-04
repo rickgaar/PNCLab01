@@ -18,6 +18,9 @@ public class Manga extends Libro {
         return this.id;
     }
 
+    public void mostrarID() {
+        System.out.printf("ID: " + this.id);
+    }
 
     // Mostrar lista de mangas
     public void mostrarMangas() {

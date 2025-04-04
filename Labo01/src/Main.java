@@ -31,11 +31,8 @@ public class Main {
 
     // Agregar un nuevo libro
     private void agregarLibro(ArrayList<Libro> libro, Scanner scanner) {
-
         Random random = new Random();
-
         String cadenaGenerada = generarCadenaUnica(2);
-
         List<Integer> digitos = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
@@ -43,7 +40,6 @@ public class Main {
         }
 
         Collections.shuffle(digitos, random);
-
         String combinacion = "";
 
         for (int i = 0; i < 4; i++) {
@@ -51,27 +47,32 @@ public class Main {
         }
 
         String combinacionGuardada = combinacion;
-
         String identificador = "LC-" + combinacionGuardada + "-" + cadenaGenerada;
 
-        System.out.print("Ingrese el nombre del libro: ");
-        String nombre_libro = scanner.nextLine();
+        try {
+            System.out.print("Ingrese el nombre del libro: ");
+            String nombre_libro = scanner.nextLine();
 
-        System.out.print("Ingrese el nombre del autor: ");
-        String autor = scanner.nextLine();
+            System.out.print("Ingrese el nombre del autor: ");
+            String autor = scanner.nextLine();
 
-        System.out.print("Ingrese el año del libro: ");
-        int anio = scanner.nextInt();
+            System.out.print("Ingrese el año del libro: ");
+            int anio = scanner.nextInt();
 
-        scanner.nextLine();
+            scanner.nextLine();
 
-        System.out.print("Ingrese el genero del libro: ");
+            System.out.print("Ingrese el genero del libro: ");
+            String genero = scanner.nextLine();
 
-        String genero = scanner.nextLine();
-
-        Libro nuevo_libro = new Libro(identificador, nombre_libro, autor, anio, genero, false);
-        libro.add(nuevo_libro);
-        System.out.println();
+            Libro nuevo_libro = new Libro(identificador, nombre_libro, autor, anio, genero, false);
+            libro.add(nuevo_libro);
+            System.out.println();
+        } catch (InputMismatchException e){
+            System.out.println("Error: Entrada inválida. Asegúrese de ingresar el tipo de dato correcto.");
+            scanner.nextLine();
+        } catch (Exception e) {
+            System.out.println("Ocurrió un error inesperado: " + e.getMessage());
+        }
     }
 
     // Mostrar libros
@@ -92,11 +93,8 @@ public class Main {
 
     // Agregar un manga
     private void agregarManga(ArrayList<Manga> manga, Scanner scanner) {
-
         Random random = new Random();
-
         String cadenaGenerada = generarCadenaUnica(2);
-
         List<Integer> digitos = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
@@ -104,7 +102,6 @@ public class Main {
         }
 
         Collections.shuffle(digitos, random);
-
         String combinacion = "";
 
         for (int i = 0; i < 4; i++) {
@@ -112,32 +109,38 @@ public class Main {
         }
 
         String combinacionGuardada = combinacion;
-
         String identificador = "MG-" + combinacionGuardada + "-" + cadenaGenerada;
 
         System.out.print("Ingrese el nombre del manga: ");
         String nombre_manga = scanner.nextLine();
 
-        System.out.print("Ingrese el nombre del autor: ");
-        String autor = scanner.nextLine();
+        try {
+            System.out.print("Ingrese el nombre del autor: ");
+            String autor = scanner.nextLine();
 
-        System.out.print("Ingrese el año del manga: ");
-        int anio = scanner.nextInt();
+            System.out.print("Ingrese el año del manga: ");
+            int anio = scanner.nextInt();
 
-        scanner.nextLine();
+            scanner.nextLine();
 
-        System.out.print("Ingrese el estilo de dibujo: ");
-        String estilo_de_dibujo = scanner.nextLine();
+            System.out.print("Ingrese el estilo de dibujo: ");
+            String estilo_de_dibujo = scanner.nextLine();
 
-        System.out.print("Ingrese el genero: ");
-        String genero = scanner.nextLine();
+            System.out.print("Ingrese el genero: ");
+            String genero = scanner.nextLine();
 
-        System.out.print("Ambientado en: ");
-        String ambientado = scanner.nextLine();
+            System.out.print("Ambientado en: ");
+            String ambientado = scanner.nextLine();
 
-        Manga nuevo_manga = new Manga(identificador, nombre_manga, autor, anio, estilo_de_dibujo, genero, ambientado);
-        manga.add(nuevo_manga);
-        System.out.println();
+            Manga nuevo_manga = new Manga(identificador, nombre_manga, autor, anio, estilo_de_dibujo, genero, ambientado);
+            manga.add(nuevo_manga);
+            System.out.println();
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Entrada inválida. Asegúrese de ingresar el tipo de dato correcto.");
+            scanner.nextLine();
+        } catch (Exception e) {
+            System.out.println("Ocurrió un error inesperado: " + e.getMessage());
+        }
     }
 
     // Mostrar mangas
@@ -159,9 +162,7 @@ public class Main {
     // Agregar un nuevo periodico
     private void agregarPeriodico(ArrayList<Periodico> periodico, Scanner scanner) {
         Random random = new Random();
-
         String cadenaGenerada = generarCadenaUnica(2);
-
         List<Integer> digitos = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
@@ -169,7 +170,6 @@ public class Main {
         }
 
         Collections.shuffle(digitos, random);
-
         String combinacion = "";
 
         for (int i = 0; i < 4; i++) {
@@ -177,32 +177,38 @@ public class Main {
         }
 
         String combinacionGuardada = combinacion;
-
         String identificador = "PR-" + combinacionGuardada + "-" + cadenaGenerada;
 
-        System.out.print("Ingrese el titulo del periodico: ");
-        String titulo = scanner.nextLine();
+        try {
+            System.out.print("Ingrese el titulo del periodico: ");
+            String titulo = scanner.nextLine();
 
-        System.out.print("Ingrese el nombre del autor: ");
-        String autor = scanner.nextLine();
+            System.out.print("Ingrese el nombre del autor: ");
+            String autor = scanner.nextLine();
 
-        System.out.print("Ingrese el año del periodico: ");
-        int anio = scanner.nextInt();
+            System.out.print("Ingrese el año del periodico: ");
+            int anio = scanner.nextInt();
 
-        scanner.nextLine();
+            scanner.nextLine();
 
-        System.out.print("Ingrese el estilo de papel: ");
-        String estilo_de_papel = scanner.nextLine();
+            System.out.print("Ingrese el estilo de papel: ");
+            String estilo_de_papel = scanner.nextLine();
 
-        System.out.print("Ingrese el genero: ");
-        String genero = scanner.nextLine();
+            System.out.print("Ingrese el genero: ");
+            String genero = scanner.nextLine();
 
-        System.out.print("Número de hojas: ");
-        int numero_hoja = scanner.nextInt();
+            System.out.print("Número de hojas: ");
+            int numero_hoja = scanner.nextInt();
 
-        Periodico nuevo_periodico = new Periodico(identificador, titulo, autor, anio, estilo_de_papel, genero, numero_hoja);
-        periodico.add(nuevo_periodico);
-        System.out.println();
+            Periodico nuevo_periodico = new Periodico(identificador, titulo, autor, anio, estilo_de_papel, genero, numero_hoja);
+            periodico.add(nuevo_periodico);
+            System.out.println();
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Entrada inválida. Asegúrese de ingresar el tipo de dato correcto.");
+            scanner.nextLine();
+        } catch (Exception e) {
+            System.out.println("Ocurrió un error inesperado: " + e.getMessage());
+        }
     }
 
     // Mostrar periodicos
@@ -231,7 +237,7 @@ public class Main {
             System.out.println("Prestamos");
 
             for(Prestamos prestamos: prestamo) {
-                prestamos.mostrar_prestamos();
+                prestamos.mostrarPrestamos();
                 System.out.println();
             }
         }
@@ -325,26 +331,55 @@ public class Main {
         System.out.println("Listado de libros en estado de prestamo");
 
         for(Libro tipoLibro: this.libro) {
-            if(tipoLibro.isPrestado()) {
-                tipoLibro.mostrarLibro();
-                System.out.println();
-                prestamoDeLibro = true;
+            for(Prestamos tipoPrestamo: this.prestamo) {
+                if(tipoLibro.isPrestado()) {
+                    if(tipoPrestamo.getEdad() >= 18) {
+                        tipoLibro.mostrarID();
+                        tipoPrestamo.datosDePersonasEnEstadoDePrestamo();
+                        System.out.println();
+                        prestamoDeLibro = true;
+                    } else {
+                        tipoLibro.mostrarID();
+                        tipoPrestamo.datosDePersonasMenorDeEdad();
+                        System.out.println();
+                        prestamoDeLibro = true;
+                    }
+                }
             }
         }
 
         for(Manga tipoManga: this.manga) {
-            if(tipoManga.isPrestado()) {
-                tipoManga.mostrarMangas();
-                System.out.println();
-                prestamoDeLibro = true;
+            for(Prestamos tipoPrestamo: this.prestamo) {
+                if(tipoManga.isPrestado()) {
+                    if(tipoPrestamo.getEdad() >= 18) {
+                        tipoManga.mostrarID();
+                        tipoPrestamo.datosDePersonasEnEstadoDePrestamo();
+                        System.out.println();
+                        prestamoDeLibro = true;
+                    } else {
+                        tipoManga.mostrarID();
+                        tipoPrestamo.datosDePersonasMenorDeEdad();
+                        System.out.println();
+                        prestamoDeLibro = true;
+                    }
+                }
             }
         }
 
         for(Periodico tipoPeriodico: this.periodico) {
-            if(tipoPeriodico.isPrestado()) {
-                tipoPeriodico.mostrarPeriodico();
-                System.out.println();
-                prestamoDeLibro = true;
+            for(Prestamos tipoPrestamo: this.prestamo) {
+                if(tipoPeriodico.isPrestado()) {
+                    if(tipoPrestamo.getEdad() >= 18) {
+                        tipoPeriodico.mostrarID();
+                        tipoPrestamo.datosDePersonasEnEstadoDePrestamo();
+                        System.out.println();
+                        prestamoDeLibro = true;
+                    } else {
+                        tipoPrestamo.datosDePersonasMenorDeEdad();
+                        System.out.println();
+                        prestamoDeLibro = true;
+                    }
+                }
             }
         }
 

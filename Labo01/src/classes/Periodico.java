@@ -18,6 +18,10 @@ public class Periodico extends Libro {
         return this.id;
     }
 
+    public void mostrarID() {
+        System.out.printf("ID: " + this.id);
+    }
+
     // Mostrar lista de periodicos
     public void mostrarPeriodico() {
         System.out.println("Identificación: " + this.id);

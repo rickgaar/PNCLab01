@@ -17,22 +17,34 @@ public class Prestamos {
         this.fecha_fin_prestamo = fecha_fin_prestamo;
     }
 
-    public String getFechaFinPrestamo() {
-        return fecha_fin_prestamo;
-    }
-
-    public void setFechaFinPrestamo(String fecha_fin_prestamo) {
-        this.fecha_fin_prestamo = fecha_fin_prestamo;
-    }
-
-
     // Lista de prestamos
-    public void mostrar_prestamos() {
+    public void mostrarPrestamos() {
         System.out.println("Identificación: " + this.identificacion);
         System.out.println("Nombre de la persona: " + this.nombre_persona);
         System.out.println("Edad de la persona: " + this.edad);
         System.out.println("Dui: " + this.dui);
         System.out.println("Fecha de prestamo: " + this.fecha_prestamo);
         System.out.println("Fecha fin del prestamo: " + this.fecha_fin_prestamo);
+    }
+
+    public void datosDePersonasEnEstadoDePrestamo() {
+        System.out.println("Identificación: " + this.identificacion);
+        System.out.println("Fecha de inicio de prestamo: " +this.fecha_prestamo);
+        System.out.println("Fecha final de prestamo: " +this.fecha_fin_prestamo);
+        System.out.println("Persona que solicitó el libro: " +this.nombre_persona);
+        System.out.println("Dui: " +this.dui);
+    }
+
+    public void datosDePersonasMenorDeEdad() {
+        this.dui = "00000000-0";
+        System.out.println("Identificación: " + this.identificacion);
+        System.out.println("Fecha de prestamo: " + this.fecha_prestamo);
+        System.out.println("Fecha fin del prestamo: " + this.fecha_fin_prestamo);
+        System.out.println("Persona que solicitó el libro: " +this.nombre_persona);
+        System.out.println("Dui: " + this.dui);
+    }
+
+    public int getEdad() {
+        return this.edad;
     }
 }
