@@ -27,6 +27,6 @@ public class Periodico extends Libro {
         System.out.println("Estilo de papel: " + this.estiloPapel);
         System.out.println("Género: " + this.genero);
         System.out.println("Numero de hoja: " + this.numHojas);
-        System.out.printf("Estado: " + this.prestado);
+        System.out.println("Estado: " + (this.prestado ? "Prestado" : "Disponible"));
     }
 }

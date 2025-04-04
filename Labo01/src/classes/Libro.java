@@ -34,6 +34,9 @@ public class Libro {
         return this.id;
     }
 
+    public void mostrarID(){
+        System.out.println("ID: " + this.id);
+    }
 
     // Mostrar resultados de libro
     public void mostrarLibro() {
@@ -42,6 +45,6 @@ public class Libro {
         System.out.println("Autor: " + this.autor);
         System.out.println("Año de publicación: " + this.anio);
         System.out.println("Género: " + this.genero);
-        System.out.printf("Estado: " +prestado);
+        System.out.println("Estado: " + (this.prestado ? "Prestado" : "Disponible"));
     }
 }

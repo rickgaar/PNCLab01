@@ -28,6 +28,6 @@ public class Manga extends Libro {
         System.out.println("Estilo de dibujo: " + this.estiloDibujo);
         System.out.println("Género: " + this.genero);
         System.out.println("Ambientado: " + this.ambientacion);
-        System.out.printf("Estado: " + this.prestado);
+        System.out.println("Estado: " + (this.prestado ? "Prestado" : "Disponible"));
     }
 }

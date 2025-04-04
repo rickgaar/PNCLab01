@@ -77,8 +77,10 @@ public class Main {
     // Mostrar libros
     private void listaDeLibros(ArrayList<Libro> libro) {
         if(libro.isEmpty()) {
+            System.out.println("\n----------------------");
             System.out.println("No hay libros convencionales");
         } else {
+            System.out.println("\n----------------------");
             System.out.println("Libros Convencionales:");
 
             for(Libro libroConvencional : libro) {
@@ -141,8 +143,10 @@ public class Main {
     // Mostrar mangas
     private void listaDeMangas(ArrayList<Manga> manga) {
         if(manga.isEmpty()) {
+            System.out.println("\n----------------------");
             System.out.println("No hay ningún manga");
         } else {
+            System.out.println("\n----------------------");
             System.out.println("Mangas");
 
             for(Manga mangas: manga) {
@@ -204,8 +208,10 @@ public class Main {
     // Mostrar periodicos
     private void listaDePeriodicos(ArrayList<Periodico> periodico) {
         if(periodico.isEmpty()) {
+            System.out.println("\n----------------------");
             System.out.println("No hay ningún periodico");
         } else {
+            System.out.println("\n----------------------");
             System.out.println("Periodicos");
 
             for(Periodico periodicos: periodico) {
@@ -215,58 +221,13 @@ public class Main {
         }
     }
 
-    // Agregar un prestamo
-    private void agregarPrestamo(ArrayList<Prestamos> prestamo, Scanner scanner) {
-        Random random = new Random();
-
-        String cadenaGenerada = generarCadenaUnica(2);
-
-        List<Integer> digitos = new ArrayList<>();
-
-        for (int i = 0; i < 10; i++) {
-            digitos.add(i);
-        }
-
-        Collections.shuffle(digitos, random);
-
-        String combinacion = "";
-
-        for (int i = 0; i < 4; i++) {
-            combinacion += digitos.get(i);
-        }
-
-        String combinacionGuardada = combinacion;
-
-        String identificador = "PR-" + combinacionGuardada + "-" + cadenaGenerada;
-
-        System.out.print("Ingrese el nombre de la persona: ");
-        String nombre_persona = scanner.nextLine();
-
-        System.out.print("Ingrese la edad de la persona: ");
-        int edad = scanner.nextInt();
-
-        System.out.print("Dui: ");
-        String dui = scanner.nextLine();
-
-        scanner.nextLine();
-
-        System.out.print("Fecha de prestamo: ");
-        String fecha_prestamo = scanner.nextLine();
-
-        System.out.print("Fecha final del prestamo: ");
-        String fecha_fin_prestamo = scanner.nextLine();
-
-        Prestamos nuevo_prestamo = new Prestamos(identificador, nombre_persona, edad, dui, fecha_prestamo, fecha_fin_prestamo);
-        prestamo.add(nuevo_prestamo);
-        System.out.println();
-
-    }
-
     // Mostrar prestamos
     private void listaPrestamos(ArrayList<Prestamos> prestamo) {
         if(prestamo.isEmpty()) {
+            System.out.println("\n----------------------");
             System.out.println("No hay ningún prestamo registrado");
         } else {
+            System.out.println("\n----------------------");
             System.out.println("Prestamos");
 
             for(Prestamos prestamos: prestamo) {
@@ -280,8 +241,10 @@ public class Main {
     private static void listadoDeLibros(Main main) {
 
         if(main.libro.isEmpty()) {
+            System.out.println("\n----------------------");
             System.out.println("No hay libros convencionales");
         } else {
+            System.out.println("\n----------------------");
             System.out.println("Libros Convencionales:");
 
             for(Libro libroConvencional : main.libro) {
@@ -291,8 +254,10 @@ public class Main {
         }
 
         if(main.manga.isEmpty()) {
+            System.out.println("\n----------------------");
             System.out.println("No hay ningún manga");
         } else {
+            System.out.println("\n----------------------");
             System.out.println("Mangas");
 
             for(Manga mangas: main.manga) {
@@ -302,8 +267,10 @@ public class Main {
         }
 
         if(main.periodico.isEmpty()) {
+            System.out.println("\n----------------------");
             System.out.println("No hay ningún periodico");
         } else {
+            System.out.println("\n----------------------");
             System.out.println("Periodicos");
 
             for(Periodico periodicos: main.periodico) {
@@ -311,18 +278,6 @@ public class Main {
                 System.out.println();
             }
         }
-
-        if(main.prestamo.isEmpty()) {
-            System.out.println("No hay ningún prestamo registrado");
-        } else {
-            System.out.println("Prestamos");
-
-            for(Prestamos prestamos: main.prestamo) {
-                prestamos.mostrar_prestamos();
-                System.out.println();
-            }
-        }
-
     }
 
     // Sub-Menú
@@ -335,14 +290,9 @@ public class Main {
         do {
             System.out.println("\n---------------------------------");
             System.out.println("1. Agregar un libro convencional");
-            System.out.println("2. Mostrar libros convencionales ");
-            System.out.println("3. Agregar un manga");
-            System.out.println("4. Mostrar mangas");
-            System.out.println("5. Agregar un periodico");
-            System.out.println("6. Mostrar periodicos");
-            System.out.println("7. Agregar un prestamo");
-            System.out.println("8. Mostrar prestamos");
-            System.out.println("9. Volver al menu anterior");
+            System.out.println("2. Agregar un manga");
+            System.out.println("3. Agregar un periodico");
+            System.out.println("4. Volver al menu anterior");
             System.out.print("Ingresar opcion: ");
 
             opcion = scanner.nextInt();
@@ -353,85 +303,25 @@ public class Main {
                     agregarLibro(libro, scanner);
                     break;
                 case 2:
-                    listaDeLibros(libro);
-                    break;
-                case 3:
                     agregarManga(manga, scanner);
                     break;
-                case 4:
-                    listaDeMangas(manga);
-                    break;
-                case 5:
+                case 3:
                     agregarPeriodico(periodico, scanner);
                     break;
-                case 6:
-                    listaDePeriodicos(periodico);
-                    break;
-                case 7:
-                    agregarPrestamo(prestamo, scanner);
-                    break;
-                case 8:
-                    listaPrestamos(prestamo);
-                    break;
-                case 9:
+                case 4:
                     return;
                 default:
-                    System.out.println("Valor inválido, ingrese un número del 1 al 9");
+                    System.out.println("Valor inválido, ingrese un número del 1 al 4");
                     break;
             }
         }
         while(opcion >= 1 && opcion <= 9);
     }
 
-    // Funcion para cambiar el estado de un libro a si esta prestado o esta disponible
-    private void cambiarEstado(String identificador) {
-        // Buscando en los libros
-        for (Libro libroConvencional : libro) {
-            // Evalua el id
-            if (libroConvencional.getIdentificador().equals(identificador)) {
-                //Ejecutar funcion cambiarEstado
-                libroConvencional.cambiarEstado();
-                String estado = libroConvencional.isPrestado() ? "prestado" : "disponible";
-                // Mostrar mensaje que el estado ha sido cambiado
-                System.out.println("El estado del libro ha sido cambiado a: " + estado);
-                return;
-            }
-        }
-
-        // Buscando en los mangas
-        for (Manga mangaItem : manga) {
-            // Evalua el id
-            if (mangaItem.getIdentificador().equals(identificador)) {
-                //Ejecutar funcion cambiarEstado
-                mangaItem.cambiarEstado();
-                String estado = mangaItem.isPrestado() ? "prestado" : "disponible";
-                // Mostrar mensaje que el estado ha sido cambiado
-                System.out.println("El estado del manga ha sido cambiado a: " + estado);
-                return;
-            }
-        }
-
-        // Buscando en los periodicos
-        for (Periodico periodicoItem : periodico) {
-            // Evalua el id
-            if (periodicoItem.getIdentificador().equals(identificador)) {
-                //Ejecutar funcion cambiarEstado
-                periodicoItem.cambiarEstado();
-                String estado = periodicoItem.isPrestado() ? "prestado" : "disponible";
-                // Mostrar mensaje que el estado ha sido cambiado
-                System.out.println("El estado del periódico ha sido cambiado a: " + estado);
-                return;
-            }
-        }
-
-        // En caso no haya un libro/manga/periodico que coincida con el id proporcionado
-        System.out.println("No se encontró un libro, manga o periódico con el identificador proporcionado.");
-    }
-
     // Funcionalidad de listado de libros en estado de prestamo (true).
     private void librosEnEstadoDePrestamo() {
         boolean prestamoDeLibro = false;
-
+        System.out.println("\n---------------------------------------");
         System.out.println("Listado de libros en estado de prestamo");
 
         for(Libro tipoLibro: this.libro) {
@@ -463,6 +353,179 @@ public class Main {
         }
     }
 
+    // Funcionalidad de listado de libros en estado de disponible (false).
+    private void librosEnEstadoDeDisponible() {
+        boolean prestamoDeLibro = false;
+        System.out.println("\n---------------------------------------");
+        System.out.println("Listado de libros disponibles");
+
+        for(Libro tipoLibro: this.libro) {
+            if(!tipoLibro.isPrestado()) {
+                tipoLibro.mostrarLibro();
+                System.out.println();
+                prestamoDeLibro = true;
+            }
+        }
+
+        for(Manga tipoManga: this.manga) {
+            if(!tipoManga.isPrestado()) {
+                tipoManga.mostrarMangas();
+                System.out.println();
+                prestamoDeLibro = true;
+            }
+        }
+
+        for(Periodico tipoPeriodico: this.periodico) {
+            if(!tipoPeriodico.isPrestado()) {
+                tipoPeriodico.mostrarPeriodico();
+                System.out.println();
+                prestamoDeLibro = true;
+            }
+        }
+
+        if(!prestamoDeLibro) {
+            System.out.println("\n---------------------------------------");
+            System.out.println("No hay ningun tipo de libro que esté disponible");
+        }
+    }
+
+    // Funcion #5: Prestar/devolver un libro
+    private void prestarLibro(Scanner scanner) {
+        System.out.print("Ingrese el identificador del libro/manga/periodico: ");
+        String identificador = scanner.nextLine();
+
+        Libro material = null;
+
+        // Buscar en libros
+        for (Libro l : libro) {
+            if (l.getIdentificador().equals(identificador)) {
+                material = l;
+                break;
+            }
+        }
+
+        // Si no esta en libro, buscar en manga
+        if (material == null) {
+            for (Manga m : manga) {
+                if (m.getIdentificador().equals(identificador)) {
+                    material = m;
+                    break;
+                }
+            }
+        }
+
+        // Si no esta en libro ni en manga, buscar en periodico
+        if (material == null) {
+            for (Periodico p : periodico) {
+                if (p.getIdentificador().equals(identificador)) {
+                    material = p;
+                    break;
+                }
+            }
+        }
+
+        // Si no se encontro ningun libro/manga/periodico
+        if (material == null) {
+            System.out.println("No se encontró ningún material con ese identificador.");
+            return;
+        }
+
+        // Si el material esta disponible
+        if (!material.isPrestado()) {
+            // Generacion de ID
+            Random random = new Random();
+            String cadenaGenerada = generarCadenaUnica(2);
+            List<Integer> digitos = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                digitos.add(i);
+            }
+            Collections.shuffle(digitos, random);
+            String combinacion = "";
+            for (int i = 0; i < 4; i++) {
+                combinacion += digitos.get(i);
+            }
+            String combinacionGuardada = combinacion;
+            String id_prestamo = "PR-" + combinacionGuardada + "-" + cadenaGenerada;
+
+            System.out.print("Ingrese el nombre de la persona: ");
+            String nombre_persona = scanner.nextLine();
+
+            System.out.print("Ingrese la edad de la persona: ");
+            int edad = scanner.nextInt();
+            scanner.nextLine();
+
+            // Aqui se evalua si la persona es menor de edad
+            String dui = "";
+            if (edad >= 18) {
+                System.out.print("Ingrese el DUI: ");
+                dui = scanner.nextLine();
+            } else {
+                System.out.println("Menor de edad, no es necesario ingresar DUI.");
+            }
+
+            System.out.print("Ingrese la fecha del préstamo: ");
+            String fecha_prestamo = scanner.nextLine();
+
+            System.out.print("Ingrese la fecha final del préstamo: ");
+            String fecha_fin = scanner.nextLine();
+
+            Prestamos nuevoPrestamo = new Prestamos(id_prestamo, nombre_persona, edad, dui, fecha_prestamo, "");
+            prestamo.add(nuevoPrestamo);
+            //Cambiando el estado a prestado
+            material.cambiarEstado();
+
+            System.out.println("El material ahora está prestado.");
+        } else {
+            // Si el libro ya estaba prestado
+            material.cambiarEstado();
+            System.out.println("El material ahora está disponible.");
+        }
+    }
+
+    // Funcionalidad 6: ver detalles de un libro y su estado
+    private void verDetallesLibros() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el ID del libro que desea revisar sus detalles: ");
+        String id = scanner.nextLine();
+
+        boolean encontrado = false;
+
+        for (Libro tipoLibro : this.libro) {
+            if (tipoLibro.getIdentificador().equals(id)) {
+                System.out.println("\nDetalles del Libro:");
+                tipoLibro.mostrarLibro();
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            for (Manga tipoManga : this.manga) {
+                if (tipoManga.getIdentificador().equals(id)) {
+                    System.out.println("\nDetalles del Manga:");
+                    tipoManga.mostrarMangas();
+                    encontrado = true;
+                    break;
+                }
+            }
+        }
+
+        if (!encontrado) {
+            for (Periodico tipoPeriodico : this.periodico) {
+                if (tipoPeriodico.getIdentificador().equals(id)) {
+                    System.out.println("\nDetalles del Periódico:");
+                    tipoPeriodico.mostrarPeriodico();
+                    encontrado = true;
+                    break;
+                }
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("No se encontró ningún libro, manga o periódico con ese ID.");
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Main main = new Main();
@@ -475,7 +538,7 @@ public class Main {
             System.out.println("2. Listado de libros existentes");
             System.out.println("3. Listado de libros en estado de préstamo");
             System.out.println("4. Listado de libros disponibles");
-            System.out.println("5. Prestar un libro");
+            System.out.println("5. Prestar/devolver un libro");
             System.out.println("6. Ver detalles de un libro");
             System.out.println("7. Terminar sistema");
             System.out.print("Ingresar opcion: ");
@@ -493,15 +556,13 @@ public class Main {
                     main.librosEnEstadoDePrestamo();
                     break;
                 case 4:
-
+                    main.librosEnEstadoDeDisponible();
                     break;
                 case 5:
-                    System.out.print("Ingrese el id del libro/manga/periódico a prestar/devolver: ");
-                    String idMaterial = scanner.nextLine();
-                    main.cambiarEstado(idMaterial);
+                    main.prestarLibro(scanner);
                     break;
                 case 6:
-
+                    main.verDetallesLibros();
                     break;
                 case 7:
                     return;
