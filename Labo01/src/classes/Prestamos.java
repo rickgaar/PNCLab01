@@ -17,6 +17,15 @@ public class Prestamos {
         this.fecha_fin_prestamo = fecha_fin_prestamo;
     }
 
+    public String getFechaFinPrestamo() {
+        return fecha_fin_prestamo;
+    }
+
+    public void setFechaFinPrestamo(String fecha_fin_prestamo) {
+        this.fecha_fin_prestamo = fecha_fin_prestamo;
+    }
+
+
     // Lista de prestamos
     public void mostrar_prestamos() {
         System.out.println("Identificación: " + this.identificacion);

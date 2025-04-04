@@ -428,6 +428,109 @@ public class Main {
         System.out.println("No se encontró un libro, manga o periódico con el identificador proporcionado.");
     }
 
+    // Funcion #5: Prestar/Devolver Libro
+    private void prestarLibro(Scanner scanner) {
+        System.out.print("Ingrese el identificador del libro/manga/periodico: ");
+        String identificador = scanner.nextLine();
+
+        Libro material = null;
+
+        // Buscar en libros
+        for (Libro l : libro) {
+            if (l.getIdentificador().equals(identificador)) {
+                material = l;
+                break;
+            }
+        }
+
+        // Si no esta en libro, buscar en manga
+        if (material == null) {
+            for (Manga m : manga) {
+                if (m.getIdentificador().equals(identificador)) {
+                    material = m;
+                    break;
+                }
+            }
+        }
+
+        // Si no esta en libro ni en manga, buscar en periodico
+        if (material == null) {
+            for (Periodico p : periodico) {
+                if (p.getIdentificador().equals(identificador)) {
+                    material = p;
+                    break;
+                }
+            }
+        }
+
+        // Si no se encontro ningun libro/manga/periodico
+        if (material == null) {
+            System.out.println("No se encontró ningún material con ese identificador.");
+            return;
+        }
+
+        // Si el material esta disponible
+        if (!material.isPrestado()) {
+            // Generacion de ID
+            Random random = new Random();
+            String cadenaGenerada = generarCadenaUnica(2);
+            List<Integer> digitos = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                digitos.add(i);
+            }
+            Collections.shuffle(digitos, random);
+            String combinacion = "";
+            for (int i = 0; i < 4; i++) {
+                combinacion += digitos.get(i);
+            }
+            String combinacionGuardada = combinacion;
+            String id_prestamo = "PR-" + combinacionGuardada + "-" + cadenaGenerada;
+
+            System.out.print("Ingrese el nombre de la persona: ");
+            String nombre_persona = scanner.nextLine();
+
+            System.out.print("Ingrese la edad de la persona: ");
+            int edad = scanner.nextInt();
+            scanner.nextLine();
+
+            String dui = "";
+            if (edad >= 18) {
+                System.out.print("Ingrese el DUI: ");
+                dui = scanner.nextLine();
+            } else {
+                System.out.println("Menor de edad, no es necesario ingresar DUI.");
+            }
+
+            System.out.print("Ingrese la fecha del préstamo: ");
+            String fecha_prestamo = scanner.nextLine();
+
+            Prestamos nuevoPrestamo = new Prestamos(id_prestamo, nombre_persona, edad, dui, fecha_prestamo, "");
+            prestamo.add(nuevoPrestamo);
+            //Cambiando el estado a prestado
+            material.cambiarEstado();
+
+            System.out.println("El material ahora está prestado.");
+        } else {
+            // Si el libro ya estaba prestado
+            System.out.print("Ingrese la fecha final del préstamo: ");
+            String fecha_fin = scanner.nextLine();
+
+            for (int i = prestamo.size() - 1; i >= 0; i--) {
+                Prestamos p = prestamo.get(i);
+                // Si aun no se ha registrado la fecha de fin de prestamo (es decir, si aun esta prestado)
+                if (p.getFechaFinPrestamo().isEmpty()) {
+                    p.setFechaFinPrestamo(fecha_fin);
+                    // Cambiando el estado a disponible
+                    material.cambiarEstado();
+                    System.out.println("El material ahora está disponible.");
+                    return;
+                }
+            }
+
+            System.out.println("No se encontró un préstamo activo para este material.");
+        }
+    }
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -462,9 +565,7 @@ public class Main {
 
                     break;
                 case 5:
-                    System.out.print("Ingrese el id del libro/manga/periódico a prestar/devolver: ");
-                    String idMaterial = scanner.nextLine();
-                    main.cambiarEstado(idMaterial);
+                    main.prestarLibro(scanner);
                     break;
                 case 6:
 
