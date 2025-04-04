@@ -30,7 +30,7 @@ public class Main {
     }
 
     // Agregar un nuevo libro
-    private void agregar_libro_convencional(ArrayList<Libro> libro, Scanner scanner) {
+    private void agregarLibro(ArrayList<Libro> libro, Scanner scanner) {
 
         Random random = new Random();
 
@@ -75,21 +75,21 @@ public class Main {
     }
 
     // Mostrar libros
-    private void lista_libros_convencionales(ArrayList<Libro> libro) {
+    private void listaDeLibros(ArrayList<Libro> libro) {
         if(libro.isEmpty()) {
             System.out.println("No hay libros convencionales");
         } else {
             System.out.println("Libros Convencionales:");
 
             for(Libro libroConvencional : libro) {
-                libroConvencional.mostrar_libro_convencional();
+                libroConvencional.mostrarLibro();
                 System.out.println();
             }
         }
     }
 
     // Agregar un manga
-    private void agregar_manga(ArrayList<Manga> manga, Scanner scanner) {
+    private void agregarManga(ArrayList<Manga> manga, Scanner scanner) {
 
         Random random = new Random();
 
@@ -139,21 +139,21 @@ public class Main {
     }
 
     // Mostrar mangas
-    private void lista_mangas(ArrayList<Manga> manga) {
+    private void listaDeMangas(ArrayList<Manga> manga) {
         if(manga.isEmpty()) {
             System.out.println("No hay ningún manga");
         } else {
             System.out.println("Mangas");
 
             for(Manga mangas: manga) {
-                mangas.mostrar_mangas();
+                mangas.mostrarMangas();
                 System.out.println();
             }
         }
     }
 
     // Agregar un nuevo periodico
-    private void agregar_periodico(ArrayList<Periodico> periodico, Scanner scanner) {
+    private void agregarPeriodico(ArrayList<Periodico> periodico, Scanner scanner) {
         Random random = new Random();
 
         String cadenaGenerada = generarCadenaUnica(2);
@@ -202,21 +202,21 @@ public class Main {
     }
 
     // Mostrar periodicos
-    private void lista_periodicos(ArrayList<Periodico> periodico) {
+    private void listaDePeriodicos(ArrayList<Periodico> periodico) {
         if(periodico.isEmpty()) {
             System.out.println("No hay ningún periodico");
         } else {
             System.out.println("Periodicos");
 
             for(Periodico periodicos: periodico) {
-                periodicos.mostrar_periodico();
+                periodicos.mostrarPeriodico();
                 System.out.println();
             }
         }
     }
 
     // Agregar un prestamo
-    private void agregar_prestamos(ArrayList<Prestamos> prestamo, Scanner scanner) {
+    private void agregarPrestamo(ArrayList<Prestamos> prestamo, Scanner scanner) {
         Random random = new Random();
 
         String cadenaGenerada = generarCadenaUnica(2);
@@ -263,7 +263,7 @@ public class Main {
     }
 
     // Mostrar prestamos
-    private void lista_prestamos(ArrayList<Prestamos> prestamo) {
+    private void listaPrestamos(ArrayList<Prestamos> prestamo) {
         if(prestamo.isEmpty()) {
             System.out.println("No hay ningún prestamo registrado");
         } else {
@@ -277,7 +277,7 @@ public class Main {
     }
 
     // Funcion #2 de mostrar listado de libros existentes
-    private static void listado_libros(Main main) {
+    private static void listadoDeLibros(Main main) {
 
         if(main.libro.isEmpty()) {
             System.out.println("No hay libros convencionales");
@@ -285,7 +285,7 @@ public class Main {
             System.out.println("Libros Convencionales:");
 
             for(Libro libroConvencional : main.libro) {
-                libroConvencional.mostrar_libro_convencional();
+                libroConvencional.mostrarLibro();
                 System.out.println();
             }
         }
@@ -296,7 +296,7 @@ public class Main {
             System.out.println("Mangas");
 
             for(Manga mangas: main.manga) {
-                mangas.mostrar_mangas();
+                mangas.mostrarMangas();
                 System.out.println();
             }
         }
@@ -307,7 +307,7 @@ public class Main {
             System.out.println("Periodicos");
 
             for(Periodico periodicos: main.periodico) {
-                periodicos.mostrar_periodico();
+                periodicos.mostrarPeriodico();
                 System.out.println();
             }
         }
@@ -350,28 +350,28 @@ public class Main {
 
             switch(opcion) {
                 case 1:
-                    agregar_libro_convencional(libro, scanner);
+                    agregarLibro(libro, scanner);
                     break;
                 case 2:
-                    lista_libros_convencionales(libro);
+                    listaDeLibros(libro);
                     break;
                 case 3:
-                    agregar_manga(manga, scanner);
+                    agregarManga(manga, scanner);
                     break;
                 case 4:
-                    lista_mangas(manga);
+                    listaDeMangas(manga);
                     break;
                 case 5:
-                    agregar_periodico(periodico, scanner);
+                    agregarPeriodico(periodico, scanner);
                     break;
                 case 6:
-                    lista_periodicos(periodico);
+                    listaDePeriodicos(periodico);
                     break;
                 case 7:
-                    agregar_prestamos(prestamo, scanner);
+                    agregarPrestamo(prestamo, scanner);
                     break;
                 case 8:
-                    lista_prestamos(prestamo);
+                    listaPrestamos(prestamo);
                     break;
                 case 9:
                     return;
@@ -428,6 +428,40 @@ public class Main {
         System.out.println("No se encontró un libro, manga o periódico con el identificador proporcionado.");
     }
 
+    // Funcionalidad de listado de libros en estado de prestamo (true).
+    private void librosEnEstadoDePrestamo() {
+        boolean prestamoDeLibro = false;
+
+        System.out.println("Listado de libros en estado de prestamo");
+
+        for(Libro tipoLibro: this.libro) {
+            if(tipoLibro.isPrestado()) {
+                tipoLibro.mostrarLibro();
+                System.out.println();
+                prestamoDeLibro = true;
+            }
+        }
+
+        for(Manga tipoManga: this.manga) {
+            if(tipoManga.isPrestado()) {
+                tipoManga.mostrarMangas();
+                System.out.println();
+                prestamoDeLibro = true;
+            }
+        }
+
+        for(Periodico tipoPeriodico: this.periodico) {
+            if(tipoPeriodico.isPrestado()) {
+                tipoPeriodico.mostrarPeriodico();
+                System.out.println();
+                prestamoDeLibro = true;
+            }
+        }
+
+        if(!prestamoDeLibro) {
+            System.out.println("No hay ningun tipo de libro que esté en estado de prestamo");
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -453,10 +487,10 @@ public class Main {
                     main.menu();
                     break;
                 case 2:
-                    listado_libros(main);
+                    listadoDeLibros(main);
                     break;
                 case 3:
-
+                    main.librosEnEstadoDePrestamo();
                     break;
                 case 4:
 

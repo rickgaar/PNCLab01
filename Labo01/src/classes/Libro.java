@@ -36,12 +36,12 @@ public class Libro {
 
 
     // Mostrar resultados de libro
-    public void mostrar_libro_convencional() {
+    public void mostrarLibro() {
         System.out.println("Identificación: " + this.id);
         System.out.println("Nombre del Libro: " + this.nombre);
         System.out.println("Autor: " + this.autor);
         System.out.println("Año de publicación: " + this.anio);
         System.out.println("Género: " + this.genero);
+        System.out.printf("Estado: " +prestado);
     }
-
 }

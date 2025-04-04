@@ -19,7 +19,7 @@ public class Periodico extends Libro {
     }
 
     // Mostrar lista de periodicos
-    public void mostrar_periodico() {
+    public void mostrarPeriodico() {
         System.out.println("Identificación: " + this.id);
         System.out.println("Titulo del periodico: " + this.nombre);
         System.out.println("Autor: " + this.autor);
@@ -27,5 +27,6 @@ public class Periodico extends Libro {
         System.out.println("Estilo de papel: " + this.estiloPapel);
         System.out.println("Género: " + this.genero);
         System.out.println("Numero de hoja: " + this.numHojas);
+        System.out.printf("Estado: " + this.prestado);
     }
 }

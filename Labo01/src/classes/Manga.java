@@ -20,7 +20,7 @@ public class Manga extends Libro {
 
 
     // Mostrar lista de mangas
-    public void mostrar_mangas() {
+    public void mostrarMangas() {
         System.out.println("Identificación: " + this.id);
         System.out.println("Nombre del manga: " + this.nombre);
         System.out.println("Autor: " + this.autor);
@@ -28,5 +28,6 @@ public class Manga extends Libro {
         System.out.println("Estilo de dibujo: " + this.estiloDibujo);
         System.out.println("Género: " + this.genero);
         System.out.println("Ambientado: " + this.ambientacion);
+        System.out.printf("Estado: " + this.prestado);
     }
 }
