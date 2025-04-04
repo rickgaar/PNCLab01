@@ -28,4 +28,13 @@ public class Libro {
     public String getEstado(){
         return prestado;
     }
+
+    // Mostrar resultados de libro
+    public void mostrar_libro_convencional() {
+        System.out.println("Identificación: " + this.id);
+        System.out.println("Nombre del Libro: " + this.nombre);
+        System.out.println("Autor: " + this.autor);
+        System.out.println("Año de publicación: " + this.anio);
+        System.out.println("Género: " + this.genero);
+    }
 }
