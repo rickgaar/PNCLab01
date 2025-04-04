@@ -69,7 +69,7 @@ public class Main {
 
         String genero = scanner.nextLine();
 
-        Libro nuevo_libro = new Libro(identificador, nombre_libro, autor, anio, genero);
+        Libro nuevo_libro = new Libro(identificador, nombre_libro, autor, anio, genero, false);
         libro.add(nuevo_libro);
         System.out.println();
     }
@@ -182,12 +182,12 @@ public class Main {
         System.out.print("Ingrese el nombre del autor: ");
         String autor = scanner.nextLine();
 
-        System.out.print("Ingrese el año del manga: ");
+        System.out.print("Ingrese el año del periodico: ");
         int anio = scanner.nextInt();
 
         scanner.nextLine();
 
-        System.out.print("Ingrese el estilo del papel: ");
+        System.out.print("Ingrese el estilo de papel: ");
         String estilo_de_papel = scanner.nextLine();
 
         System.out.print("Ingrese el genero: ");
@@ -333,6 +333,7 @@ public class Main {
         int opcion = 0;
 
         do {
+            System.out.println("\n---------------------------------");
             System.out.println("1. Agregar un libro convencional");
             System.out.println("2. Mostrar libros convencionales ");
             System.out.println("3. Agregar un manga");
@@ -375,12 +376,58 @@ public class Main {
                 case 9:
                     return;
                 default:
-                    System.out.println("Valor inválido o ingrese un número del 1 al 7");
+                    System.out.println("Valor inválido, ingrese un número del 1 al 9");
                     break;
             }
         }
         while(opcion >= 1 && opcion <= 9);
     }
+
+    // Funcion para cambiar el estado de un libro a si esta prestado o esta disponible
+    private void cambiarEstado(String identificador) {
+        // Buscando en los libros
+        for (Libro libroConvencional : libro) {
+            // Evalua el id
+            if (libroConvencional.getIdentificador().equals(identificador)) {
+                //Ejecutar funcion cambiarEstado
+                libroConvencional.cambiarEstado();
+                String estado = libroConvencional.isPrestado() ? "prestado" : "disponible";
+                // Mostrar mensaje que el estado ha sido cambiado
+                System.out.println("El estado del libro ha sido cambiado a: " + estado);
+                return;
+            }
+        }
+
+        // Buscando en los mangas
+        for (Manga mangaItem : manga) {
+            // Evalua el id
+            if (mangaItem.getIdentificador().equals(identificador)) {
+                //Ejecutar funcion cambiarEstado
+                mangaItem.cambiarEstado();
+                String estado = mangaItem.isPrestado() ? "prestado" : "disponible";
+                // Mostrar mensaje que el estado ha sido cambiado
+                System.out.println("El estado del manga ha sido cambiado a: " + estado);
+                return;
+            }
+        }
+
+        // Buscando en los periodicos
+        for (Periodico periodicoItem : periodico) {
+            // Evalua el id
+            if (periodicoItem.getIdentificador().equals(identificador)) {
+                //Ejecutar funcion cambiarEstado
+                periodicoItem.cambiarEstado();
+                String estado = periodicoItem.isPrestado() ? "prestado" : "disponible";
+                // Mostrar mensaje que el estado ha sido cambiado
+                System.out.println("El estado del periódico ha sido cambiado a: " + estado);
+                return;
+            }
+        }
+
+        // En caso no haya un libro/manga/periodico que coincida con el id proporcionado
+        System.out.println("No se encontró un libro, manga o periódico con el identificador proporcionado.");
+    }
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -388,6 +435,7 @@ public class Main {
         int opcion = 0;
 
         do {
+            System.out.println("\n---------------------------");
             System.out.println("Menu Laboratorio 01 PNC");
             System.out.println("1. Inserción de nuevos libros");
             System.out.println("2. Listado de libros existentes");
@@ -414,7 +462,9 @@ public class Main {
 
                     break;
                 case 5:
-
+                    System.out.print("Ingrese el id del libro/manga/periódico a prestar/devolver: ");
+                    String idMaterial = scanner.nextLine();
+                    main.cambiarEstado(idMaterial);
                     break;
                 case 6:
 
@@ -422,7 +472,7 @@ public class Main {
                 case 7:
                     return;
                 default:
-                    System.out.println("Valor inválido o ingrese un número del 1 al 7");
+                    System.out.println("Valor inválido, ingrese un número del 1 al 7");
                     break;
             }
         }

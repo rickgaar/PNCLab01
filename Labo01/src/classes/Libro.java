@@ -22,12 +22,18 @@ public class Libro {
     }
 
     public void cambiarEstado(){
-        this.prestado = this.!prestado;
+
+        this.prestado = !this.prestado;
     }
 
-    public String getEstado(){
-        return prestado;
+    public boolean isPrestado() {
+        return this.prestado;
     }
+
+    public String getIdentificador() {
+        return this.id;
+    }
+
 
     // Mostrar resultados de libro
     public void mostrar_libro_convencional() {
@@ -37,4 +43,5 @@ public class Libro {
         System.out.println("Año de publicación: " + this.anio);
         System.out.println("Género: " + this.genero);
     }
+
 }

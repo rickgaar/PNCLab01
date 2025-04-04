@@ -5,10 +5,19 @@ public class Manga extends Libro {
     String ambientacion;
 
     public Manga(String id, String nombre, String autor, Integer anio, String genero, String estiloDibujo, String ambientacion){
-        super(id, nombre, autor, anio, genero);
+        super(id, nombre, autor, anio, genero, false);
         this.estiloDibujo = estiloDibujo;
         this.ambientacion = ambientacion;
     }
+
+    public boolean isPrestado() {
+        return this.prestado;
+    }
+
+    public String getIdentificador() {
+        return this.id;
+    }
+
 
     // Mostrar lista de mangas
     public void mostrar_mangas() {

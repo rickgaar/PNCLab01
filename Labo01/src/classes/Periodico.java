@@ -5,9 +5,17 @@ public class Periodico extends Libro {
     int numHojas;
 
     public Periodico(String id, String nombre, String autor, Integer anio, String genero, String estiloPapel, int numHojas){
-        super(id, nombre, autor, anio, genero);
+        super(id, nombre, autor, anio, genero, false);
         this.estiloPapel = estiloPapel;
         this.numHojas = numHojas;
+    }
+
+    public boolean isPrestado() {
+        return this.prestado;
+    }
+
+    public String getIdentificador() {
+        return this.id;
     }
 
     // Mostrar lista de periodicos
