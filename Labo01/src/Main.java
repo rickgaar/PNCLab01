@@ -66,28 +66,13 @@ public class Main {
 
             Libro nuevo_libro = new Libro(identificador, nombre_libro, autor, anio, genero, false);
             libro.add(nuevo_libro);
+            System.out.print("\nLibro ingresado correctamente");
             System.out.println();
         } catch (InputMismatchException e){
             System.out.println("Error: Entrada inválida. Asegúrese de ingresar el tipo de dato correcto.");
             scanner.nextLine();
         } catch (Exception e) {
             System.out.println("Ocurrió un error inesperado: " + e.getMessage());
-        }
-    }
-
-    // Mostrar libros
-    private void listaDeLibros(ArrayList<Libro> libro) {
-        if(libro.isEmpty()) {
-            System.out.println("\n----------------------");
-            System.out.println("No hay libros convencionales");
-        } else {
-            System.out.println("\n----------------------");
-            System.out.println("Libros Convencionales:");
-
-            for(Libro libroConvencional : libro) {
-                libroConvencional.mostrarLibro();
-                System.out.println();
-            }
         }
     }
 
@@ -134,28 +119,13 @@ public class Main {
 
             Manga nuevo_manga = new Manga(identificador, nombre_manga, autor, anio, estilo_de_dibujo, genero, ambientado);
             manga.add(nuevo_manga);
+            System.out.print("\nManga ingresado correctamente");
             System.out.println();
         } catch (InputMismatchException e) {
             System.out.println("Error: Entrada inválida. Asegúrese de ingresar el tipo de dato correcto.");
             scanner.nextLine();
         } catch (Exception e) {
             System.out.println("Ocurrió un error inesperado: " + e.getMessage());
-        }
-    }
-
-    // Mostrar mangas
-    private void listaDeMangas(ArrayList<Manga> manga) {
-        if(manga.isEmpty()) {
-            System.out.println("\n----------------------");
-            System.out.println("No hay ningún manga");
-        } else {
-            System.out.println("\n----------------------");
-            System.out.println("Mangas");
-
-            for(Manga mangas: manga) {
-                mangas.mostrarMangas();
-                System.out.println();
-            }
         }
     }
 
@@ -202,44 +172,13 @@ public class Main {
 
             Periodico nuevo_periodico = new Periodico(identificador, titulo, autor, anio, estilo_de_papel, genero, numero_hoja);
             periodico.add(nuevo_periodico);
+            System.out.print("\nPeriodico ingresado correctamente");
             System.out.println();
         } catch (InputMismatchException e) {
             System.out.println("Error: Entrada inválida. Asegúrese de ingresar el tipo de dato correcto.");
             scanner.nextLine();
         } catch (Exception e) {
             System.out.println("Ocurrió un error inesperado: " + e.getMessage());
-        }
-    }
-
-    // Mostrar periodicos
-    private void listaDePeriodicos(ArrayList<Periodico> periodico) {
-        if(periodico.isEmpty()) {
-            System.out.println("\n----------------------");
-            System.out.println("No hay ningún periodico");
-        } else {
-            System.out.println("\n----------------------");
-            System.out.println("Periodicos");
-
-            for(Periodico periodicos: periodico) {
-                periodicos.mostrarPeriodico();
-                System.out.println();
-            }
-        }
-    }
-
-    // Mostrar prestamos
-    private void listaPrestamos(ArrayList<Prestamos> prestamo) {
-        if(prestamo.isEmpty()) {
-            System.out.println("\n----------------------");
-            System.out.println("No hay ningún prestamo registrado");
-        } else {
-            System.out.println("\n----------------------");
-            System.out.println("Prestamos");
-
-            for(Prestamos prestamos: prestamo) {
-                prestamos.mostrarPrestamos();
-                System.out.println();
-            }
         }
     }
 
